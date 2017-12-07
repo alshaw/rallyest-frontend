@@ -1,0 +1,14 @@
+  White: rgb(255,255,255), #ffffff
+
+// Background color, Menu Text 
+  Utility_gray: rgb(225,230,231), #E1E6E7
+
+//Text
+  Dark_Gray: #333333
+  TAD_gray: #8f8f8f
+
+// Logo primary colors,
+  Rallyest_Dark_blue: rgb(0,86,135), #0d6192
+  Rallyest_Blue: rgb(0,170,223), #00AADF
+  Rallyest_Yellow: rgb(255,199,19), #ffc713
+  

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+    <defs>
+        <circle id="b" cx="22.5" cy="15.5" r="4.5"/>
+        <circle id="a" cx="22" cy="21" r="19"/>
+        <mask id="c" width="40" height="40" x="-1" y="-1">
+            <path fill="#fff" d="M2 1h40v40H2z"/>
+            <use xlink:href="#a"/>
+        </mask>
+        <path id="d" d="M13.5 30h16a.5.5 0 0 0 .5-.518c-.2-5.701-2.965-8.529-8.293-8.481-5.317.047-8.22 2.865-8.705 8.456A.5.5 0 0 0 13.5 30z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle cx="29" cy="14" r="4" stroke="#0A4568"/>
+        <circle cx="16" cy="14" r="4" stroke="#0A4568"/>
+        <use fill="#FFF" xlink:href="#b"/>
+        <circle cx="22.5" cy="15.5" r="4" stroke="#0D6192"/>
+        <circle cx="22.5" cy="15.5" r="5" stroke="#FFF"/>
+        <use stroke="#29B6E4" stroke-dasharray="1" stroke-width="2" mask="url(#c)" xlink:href="#a"/>
+        <path stroke="#0A4568" d="M7.5 28h15.498c.023 0-.068-8.064-7.812-8-4.98.042-7.709 2.526-8.184 7.452A.5.5 0 0 0 7.5 28z"/>
+        <path stroke="#0A4568" d="M21 28h15.5a.5.5 0 0 0 .5-.52c-.207-5.028-2.802-7.521-7.787-7.48-5.154.044-7.891 2.71-8.213 8z"/>
+        <g>
+            <use fill="#FFF" xlink:href="#d"/>
+            <path stroke="#0D6192" d="M29.5 29.5c-.19-5.438-2.739-8.044-7.788-8-5.055.045-7.748 2.661-8.212 8h16z"/>
+            <path stroke="#FFF" d="M13.5 30.5c-.043 0-.043 0-.087-.004a1 1 0 0 1-.91-1.083c.509-5.842 3.62-8.863 9.2-8.912 5.607-.05 8.587 2.998 8.796 8.964l.001.035a1 1 0 0 1-1 1h-16z"/>
+        </g>
+    </g>
+</svg>
