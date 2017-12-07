@@ -4,18 +4,20 @@ import axios from 'axios'
 
 import { setFlash } from '../../actions/flash'
 
-export default class AreYouSure extends Component {
+export default class PostDelete extends Component {
+  constructor () {
+    super()
+
+    this.state = { modalOpen: false }
+  }
+
   render () {
     const { id } = this.props
 
     return (
       <Modal
-        trigger={
-          <Icon
-            button
-            color='black'
-            name='remove circle' />
-          }
+        open={this.state.modalOpen}
+        trigger={<Icon onClick={this.openModal.bind(this)} button color='black' name='remove circle' />}
         closeIcon
         size={'mini'}>
         <Modal.Header>
@@ -41,11 +43,15 @@ export default class AreYouSure extends Component {
     axios.delete(`/api/posts/${id}`)
       .then(res => {
         dispatch(setFlash('Post deleted', 'green'))
-        // this.setState({ posts: post.filter(post => post.id !== id) })
+        this.setState({ modalOpen: false })
       })
       .catch(res => {
         console.log(res)
         dispatch(setFlash('Failed to delete post', 'red'))
       })
+  }
+
+  openModal () {
+    this.setState({ modalOpen: true })
   }
 }

@@ -15,26 +15,6 @@ export default class PostEdit extends Component {
     }
   }
 
-  // editPost(id) {
-  //   const { dispatch } = this.props
-  //   const { message } = this.state
-  //   axios.put('/api/posts', { message })
-  //   .then(res => {
-  //     this.props.setPosts(res.data)
-  //     dispatch(setHeaders(res.headers))
-  //   })
-  //   .catch(res => {
-  //     dispatch(setFlash('Error editing post', 'red'))
-  //     dispatch(setHeaders(res.headers))
-  //   })
-  // }
-
-  // handleChange = (e) => {
-  //   e.preventDefault()
-  //   const { id, value } = e.target
-  //   this.setState({ editPost: {...this.state.editPost, [id]: value }})
-  // }
-
   render () {
     const { id, text } = this.props
 
