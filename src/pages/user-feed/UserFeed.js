@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import { Feed, Segment, Dimmer, Loader } from 'semantic-ui-react'
 
 import PostForm from './PostForm'
-import PostEdit from './PostEdit'
 import PostsList from './PostsList'
 
 import { getPosts } from '../../actions/posts'
 import { verifyToken } from '../../actions/auth'
 import { setHeaders } from '../../actions/headers'
-import { setFlash } from '../../actions/flash'
 
 class UserFeed extends Component {
   constructor () {
@@ -23,7 +20,6 @@ class UserFeed extends Component {
   }
 
   render () {
-    const { editPost } = this.state
     const { posts } = this.props
     if (posts) {
       return (
@@ -81,20 +77,6 @@ class UserFeed extends Component {
 
   toggleOpen () {
     this.setState({ open: !this.state.open })
-  }
-
-  postDestroy (id) {
-        // const { post } = this.state
-    const {dispatch} = this.props
-    axios.delete(`/api/posts/${id}`)
-      .then(res => {
-        dispatch(setFlash('Post deleted', 'green'))
-        // this.setState({ posts: post.filter(post => post.id !== id) })
-      })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Failed to delete post', 'red'))
-      })
   }
 
   setDestroyPost (areYouSure) {

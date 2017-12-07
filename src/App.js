@@ -31,7 +31,7 @@ const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
 }
 
-const DashboardRoute = ({component: Component, ...rest, user}) => {
+const DashboardRoute = ({component: Component, user, ...rest}) => {
   if (!user.isAuthenticated) {
     return (
       <div>
