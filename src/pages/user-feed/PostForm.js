@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setFlash } from '../actions/flash';
 import { Form, Modal, Button, Accordion, Icon } from 'semantic-ui-react';
+
+import { setFlash } from '../../actions/flash';
 
 class PostForm extends Component { 
   state = { open: false, message: '', activeIndex: 1 }

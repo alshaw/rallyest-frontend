@@ -4,12 +4,11 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { injectGlobal } from 'styled-components'
 
-import App from './components/App'
+import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import store from './store'
 import 'semantic-ui-css/semantic.min.css'
 
-// eslint-disable-next-line
 injectGlobal`
 body{
   margin:0px;

@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import { Modal, Form, Input, Button, Icon } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { setFlash } from '../actions/flash';
-import { setHeaders } from '../actions/headers';
-import UserFeed from './UserFeed';
-import axios from 'axios';
+import React, { Component } from 'react'
+import { Modal, Form, Input, Button, Icon } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import UserFeed from './UserFeed'
+import axios from 'axios'
+
+import { setFlash } from '../../actions/flash'
+import { setHeaders } from '../../actions/headers'
 
 class PostEdit extends Component {
   state = { editPost: { ...this.props.post } }
 
   editPost = (e) => {
     if (this.props.message === ' ') {
-      e.preventDefault();
-      const { dispatch } = this.props;
-      const { message } = this.state;
+      e.preventDefault()
+      const { dispatch } = this.props
+      const { message } = this.state
       axios.post(`/api/posts/`, { message })
         .then(res => {
           this.props.setPosts(res.data)
@@ -29,8 +30,8 @@ class PostEdit extends Component {
   }
 
   // editPost(id) {
-  //   const { dispatch } = this.props;
-  //   const { message } = this.state;
+  //   const { dispatch } = this.props
+  //   const { message } = this.state
   //   axios.put('/api/posts', { message })
   //   .then(res => {
   //     this.props.setPosts(res.data)
@@ -43,7 +44,7 @@ class PostEdit extends Component {
   // }
 
   // handleChange = (e) => {
-  //   e.preventDefault();
+  //   e.preventDefault()
   //   const { id, value } = e.target
   //   this.setState({ editPost: {...this.state.editPost, [id]: value }})
   // }
@@ -90,4 +91,4 @@ class PostEdit extends Component {
   }
 }
 
-export default PostEdit;
+export default PostEdit

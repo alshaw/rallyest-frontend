@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { Header, Segment, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { handleLogin } from '../actions/auth';
 import { Link } from 'react-router-dom';
-import { verifyToken } from '../actions/auth';
+
+import { handleLogin } from '../../actions/auth';
+import { verifyToken } from '../../actions/auth';
 
 
 
