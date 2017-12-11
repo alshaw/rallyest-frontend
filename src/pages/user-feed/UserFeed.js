@@ -6,8 +6,6 @@ import PostForm from './PostForm'
 import PostsList from './PostsList'
 
 import { getPosts } from '../../actions/posts'
-import { verifyToken } from '../../actions/auth'
-import { setHeaders } from '../../actions/headers'
 
 class UserFeed extends Component {
   constructor () {
@@ -20,7 +18,7 @@ class UserFeed extends Component {
   }
 
   render () {
-    const { posts } = this.props
+    const { posts, dispatch } = this.props
     if (posts) {
       return (
         <div
@@ -39,7 +37,7 @@ class UserFeed extends Component {
           <div style={{padding: '30px'}}>
             <PostForm />
             <Feed>
-              <PostsList posts={posts} />
+              <PostsList posts={posts} dispatch={dispatch} />
             </Feed>
           </div>
         </div>

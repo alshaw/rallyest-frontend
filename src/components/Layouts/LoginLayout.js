@@ -1,13 +1,13 @@
-/*jshint esversion: 6 */
-import React from 'react';
-import NoAuthNav from '../NoAuth/NoAuthNav';
-import NoAuthFooter from '../NoAuth/NoAuthFooter';
+/* jshint esversion: 6 */
+import React from 'react'
+import NoAuthNav from '../NoAuth/NoAuthNav'
+import NoAuthFooter from '../NoAuth/NoAuthFooter'
 
 const LoginLayout = ({children, ...rest}) => {
   return (
     <div style={styles.LoginFlexContainer}>
       <div style={styles.header}>
-        <NoAuthNav/>
+        <NoAuthNav />
       </div>
       <div>
         <div>
@@ -18,43 +18,43 @@ const LoginLayout = ({children, ...rest}) => {
       </div>
       <div style={styles.footerContainer}>
         <div>
-          <NoAuthFooter/>
+          <NoAuthFooter />
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-const styles={
-  LoginFlexContainer:{
+const styles = {
+  LoginFlexContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
-  header:{
+  header: {
     height: '15vh',
     display: 'flex',
     width: '90%',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  footerContainer:{
+  footerContainer: {
     paddingBottom: '20px',
     paddingLeft: '20px',
     paddingRight: '20px',
     backgroundColor: 'white',
-    width: '90%',
+    width: '90%'
   },
-  childBox:{
+  childBox: {
     minHeight: '80vh',
     minWidth: '75vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     borderTopLeftRadius: '20px',
-    borderTopRightRadius: '20px',
+    borderTopRightRadius: '20px'
   }
 }
 
-export default LoginLayout;
+export default LoginLayout

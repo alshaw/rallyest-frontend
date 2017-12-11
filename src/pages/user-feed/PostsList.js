@@ -1,13 +1,12 @@
 import React from 'react'
 import { Feed, Image, Segment, Divider } from 'semantic-ui-react'
 
-import AreYouSure from './AreYouSure'
+import PostDelete from './PostDelete'
 import PostComment from './PostComment'
 import PostLikes from './PostLikes'
 import PostEdit from './PostEdit'
 
-export default ({ posts }) => {
-  console.log(posts.posts)
+export default ({ posts, dispatch }) => {
   return posts.posts.map(post =>
     <Segment key={post.id}>
       <Feed.Event>
@@ -47,7 +46,7 @@ export default ({ posts }) => {
                           <PostComment />
                           <PostLikes />
                           <PostEdit id={post.id} text={post.text} />
-                          <AreYouSure id={post.id} />
+                          <PostDelete id={post.id} dispatch={dispatch} />
                         </div>
                       </div>
                     </Feed.Like>

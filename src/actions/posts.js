@@ -1,5 +1,4 @@
-import { setFlash } from './flash';
-import axios from 'axios';
+import axios from 'axios'
 
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST'
 const requestPosts = () => {
@@ -22,7 +21,7 @@ export const getPosts = () => {
     dispatch(requestPosts())
     return axios.get('/api/posts')
       .then(res => JSON.parse(res.data.res), error => console.log(error))
-      .then(json => dispatch(receivePosts(json)))  
+      .then(json => dispatch(receivePosts(json)))
   }
 }
 

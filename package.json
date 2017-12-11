@@ -26,5 +26,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "proxy": "http://localhost:3001"
 }

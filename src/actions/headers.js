@@ -1,4 +1,4 @@
-/*jshint esversion: 6 */
+/* jshint esversion: 6 */
 export const setHeaders = headers => {
-  return { type: 'SET_HEADERS', headers };
-};
+  return { type: 'SET_HEADERS', headers }
+}

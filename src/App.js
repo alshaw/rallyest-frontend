@@ -5,27 +5,24 @@ import { connect } from 'react-redux'
 import Flash from './components/Flash'
 import DashboardLayout from './components/Layouts/DashboardLayout'
 import LoginLayout from './components/Layouts/LoginLayout'
-
 import store from './store'
 import { setFlash } from './actions/flash'
-
-import NoMatch from './components/NoMatch'
+import Announcements from './pages/Announcements'
+import Assignments from './pages/Assignments'
+import Community from './pages/Community'
+import Courses from './pages/Courses'
+import Files from './pages/files/Files'
+import Goals from './pages/Goals'
+import Letters from './pages/Letters'
+import NoMatch from './pages/NoMatch'
+import Photos from './pages/photos/Photos'
+import Settings from './pages/Settings'
+import Updates from './pages/Updates'
 import UserFeed from './pages/user-feed/UserFeed'
-import Files from './components/Files/Files'
-import Photos from './components/Photos/Photos'
-import Letters from './components/Letters'
-import Goals from './components/Goals'
-import Courses from './components/Courses'
-import Announcements from './components/Announcements'
-import Updates from './components/Updates'
-import Assignments from './components/Assignments'
-import Community from './components/Community'
-import Settings from './components/Settings'
-
-import Login from './components/NoAuth/Login'
-import Page1 from './components/NoAuth/Page1'
-import Page2 from './components/NoAuth/Page2'
-import Page3 from './components/NoAuth/Page3'
+import Login from './pages/NoAuth/Login'
+import Page1 from './pages/NoAuth/Page1'
+import Page2 from './pages/NoAuth/Page2'
+import Page3 from './pages/NoAuth/Page3'
 
 const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
@@ -77,7 +74,6 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
         </div>
       </LoginLayout>
     )} />
-
   )
 }
 

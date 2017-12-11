@@ -1,21 +1,20 @@
-/*jshint esversion: 6 */
-import React, { Component } from 'react';
-import { Menu, Image, Button } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { handleLogout } from '../actions/auth';
-import '../assets/Fonts/chunkfive ex.ttf';
+import React, { Component } from 'react'
+import { Menu, Image, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { handleLogout } from '../actions/auth'
+import '../assets/Fonts/chunkfive ex.ttf'
 
 class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
 // Handles the menu animationthat changes the selected item
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   handleClick = () => {
-    const { dispatch } = this.props;
+    const { dispatch } = this.props
     dispatch(handleLogout())
   }
-  render() {
-    const { activeItem } = this.state;
+  render () {
+    const { activeItem } = this.state
 
     return (
       <div style={{ backgroundColor: '#0d6192', minHeight: '100vh'}}>
@@ -25,15 +24,15 @@ class LeftMenu extends Component {
             <Menu secondary vertical >
               <Link to={'/Feed'}>
                 <Menu.Item>
-                  <Image src={require('../assets/images/Logo_White.png')}/>
+                  <Image src={require('../assets/images/Logo_White.png')} />
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Files'}> 
+              <Link to={'/Files'}>
                 <Menu.Item active={activeItem === 'Files'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
+                      <Image
                         src={require('../assets/images/icon-files.svg')}
                         />
                     </div>
@@ -44,12 +43,12 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Photos'}> 
+              <Link to={'/Photos'}>
                 <Menu.Item active={activeItem === 'Photos'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
-                        style={styles.icoimage} 
+                      <Image
+                        style={styles.icoimage}
                         src={require('../assets/images/icon-photos.svg')}
                         />
                     </div>
@@ -64,8 +63,8 @@ class LeftMenu extends Component {
                 <Menu.Item active={activeItem === 'Letters'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
-                        style={styles.icoimage} 
+                      <Image
+                        style={styles.icoimage}
                         src={require('../assets/images/icon-letters.svg')}
                         />
                     </div>
@@ -76,12 +75,12 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Updates'}  >  
+              <Link to={'/Updates'} >
                 <Menu.Item active={activeItem === 'Updates'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
-                        style={styles.icoimage} 
+                      <Image
+                        style={styles.icoimage}
                         src={require('../assets/images/icon-updates.svg')}
                         />
                     </div>
@@ -92,14 +91,14 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Courses'}>  
+              <Link to={'/Courses'}>
                 <Menu.Item active={activeItem === 'Courses'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
-                        style={styles.icoimage} 
+                      <Image
+                        style={styles.icoimage}
                         src={require('../assets/images/icon-library.svg')}
-                        /> 
+                        />
                     </div>
                     <div style={styles.textBox}>
                       Courses
@@ -108,12 +107,12 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Settings'}>  
+              <Link to={'/Settings'}>
                 <Menu.Item active={activeItem === 'Settings'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
-                      <Image 
-                        style={styles.icoimage} 
+                      <Image
+                        style={styles.icoimage}
                         src={require('../assets/images/icon-settings.svg')}
                         />
                     </div>
@@ -125,21 +124,21 @@ class LeftMenu extends Component {
               </Link>
             </Menu>
           </div>
-          
-          <div style={{  overflow: 'hidden', display: 'flex', justifyContent: 'center'}}>
-            <Button onClick={this.handleClick} 
+
+          <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center'}}>
+            <Button onClick={this.handleClick}
               style={{
-                backgroundColor: '#0d6192', 
+                backgroundColor: '#0d6192',
                 color: '#E1E6E7',
                 display: 'inline-flex'
               }}>
-              <i className="arrow left icon"></i>
-              <p 
+              <i className='arrow left icon' />
+              <p
                 style={{
-                  fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-                  fontWeight: '100', 
-                  fontSize: '17px', 
-                  lineHeight: '17px',
+                  fontFamily: 'helvetica neue, helvetica, arial, sansSerif',
+                  fontWeight: '100',
+                  fontSize: '17px',
+                  lineHeight: '17px'
                 }}
               >
                 Logout
@@ -157,28 +156,28 @@ const styles = {
   menu: {
     backgroundColor: '#0d6192',
     minHeight: '100vh',
-    fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-    fontWeight: '100', 
-    fontSize: '17px', 
-    lineHeight: '17px',
-  }, 
+    fontFamily: 'helvetica neue, helvetica, arial, sansSerif',
+    fontWeight: '100',
+    fontSize: '17px',
+    lineHeight: '17px'
+  },
   icoimage: {
     display: 'inline-flex',
     width: '50px',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   iconBox: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   textBox: {
     display: 'inline-flex',
-    fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-    fontWeight: '100', 
-    fontSize: '17px', 
+    fontFamily: 'helvetica neue, helvetica, arial, sansSerif',
+    fontWeight: '100',
+    fontSize: '17px',
     lineHeight: '17px',
-    color: '#E1E6E7',
-  },
+    color: '#E1E6E7'
+  }
 }
 
-export default connect()(LeftMenu);
+export default connect()(LeftMenu)
