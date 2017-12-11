@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 import React, { Component } from 'react'
 import { Menu, Image, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'

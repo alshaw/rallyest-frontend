@@ -2,7 +2,6 @@
 import React from 'react'
 import NavBar from '../NavBar'
 import LeftMenu from '../LeftMenu'
-import AuthRoute from '../AuthRoute'
 
 const DashboardLayout = ({children, ...rest}) => {
   return (

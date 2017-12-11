@@ -6,8 +6,6 @@ import PostForm from './PostForm'
 import PostsList from './PostsList'
 
 import { getPosts } from '../../actions/posts'
-import { verifyToken } from '../../actions/auth'
-import { setHeaders } from '../../actions/headers'
 
 class UserFeed extends Component {
   constructor () {

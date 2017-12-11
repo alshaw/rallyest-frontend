@@ -1,9 +1,5 @@
-/* jshint esversion: 6 */
-import React from 'react'
 import axios from 'axios'
 import { setFlash } from '../actions/flash'
-import { setHeaders } from '../actions/headers'
-
 
 export const RECEIVE_LOGOUT = 'RECEIVE_LOGOUT'
 const receiveLogout = () => {
@@ -16,8 +12,8 @@ export const handleLogout = () => {
   return (dispatch) => {
     axios.delete('/api/logins/1')
       .then(res => {
-        delete sessionStorage.token
-        delete sessionStorage.refresh_token
+        delete window.sessionStorage.token
+        delete window.btoasessionStorage.refresh_token
         dispatch(setFlash('Logged out successfully!', 'green'))
         dispatch(receiveLogout())
         window.location = '/'
@@ -27,7 +23,7 @@ export const handleLogout = () => {
         dispatch(setFlash('Failed to logout', 'red'))
       })
   }
-};
+}
 
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
 const receiveLogin = (res) => {
@@ -41,8 +37,8 @@ export const handleLogin = (email, password, history) => {
   return (dispatch) => {
     axios.post('/api/logins', { email, password })
       .then(res => {
-        sessionStorage.setItem('token', res.data.token)
-        sessionStorage.setItem('refresh_token', res.data.refresh_token)
+        window.sessionStorage.setItem('token', res.data.token)
+        window.sessionStorage.setItem('refresh_token', res.data.refresh_token)
         dispatch(receiveLogin(res))
         history.push('/Feed')
       })

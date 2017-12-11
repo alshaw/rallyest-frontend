@@ -5,10 +5,8 @@ import { connect } from 'react-redux'
 import Flash from './components/Flash'
 import DashboardLayout from './components/Layouts/DashboardLayout'
 import LoginLayout from './components/Layouts/LoginLayout'
-
 import store from './store'
 import { setFlash } from './actions/flash'
-
 import Announcements from './pages/Announcements'
 import Assignments from './pages/Assignments'
 import Community from './pages/Community'
@@ -21,7 +19,6 @@ import Photos from './pages/photos/Photos'
 import Settings from './pages/Settings'
 import Updates from './pages/Updates'
 import UserFeed from './pages/user-feed/UserFeed'
-
 import Login from './pages/NoAuth/Login'
 import Page1 from './pages/NoAuth/Page1'
 import Page2 from './pages/NoAuth/Page2'
@@ -77,7 +74,6 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
         </div>
       </LoginLayout>
     )} />
-
   )
 }
 

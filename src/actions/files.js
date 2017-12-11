@@ -1,4 +1,3 @@
-import { setFlash } from './flash'
 import axios from 'axios'
 
 export const LOAD_FILES_REQUEST = 'LOAD_FILES_REQUEST'

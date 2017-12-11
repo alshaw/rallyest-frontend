@@ -7,7 +7,7 @@ import { clearFlash } from '../actions/flash'
 const fadeFlash = dispatch => {
   setTimeout(() => {
     dispatch(clearFlash())
-  }, 30000)
+  }, 5000)
 }
 
 const Flash = ({ flash, dispatch }) => {
@@ -16,8 +16,7 @@ const Flash = ({ flash, dispatch }) => {
       <Container>
         <Message
           onDismiss={() => dispatch(clearFlash())}
-          color={flash.color}
-        >
+          color={flash.color}>
           <Header as='h5' textAlign='center'>{flash.message}</Header>
           {fadeFlash(dispatch)}
         </Message>
