@@ -5,7 +5,9 @@
   "dependencies": {
     "axios": "^0.17.0",
     "babel-eslint": "^8.0.3",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-cookie": "^2.1.2",
     "react-dom": "^16.0.0",
     "react-dropzone": "^4.2.1",
     "react-font-face": "^0.2.1",

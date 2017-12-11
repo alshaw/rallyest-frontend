@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { withCookies, Cookies } from 'react-cookie'
+import { instanceOf } from 'prop-types'
 
 import Flash from './components/Flash'
 import DashboardLayout from './components/Layouts/DashboardLayout'
@@ -28,7 +30,7 @@ const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
 }
 
-const DashboardRoute = ({component: Component, user, ...rest}) => {
+const DashboardRoute = ({ component: Component, user, authenticated, ...rest }) => {
   if (!user.isAuthenticated) {
     return (
       <div>
@@ -78,8 +80,35 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
 }
 
 class App extends Component {
+  constructor (props) {
+    super()
+    
+    this.state = {
+      authenticated: false
+    }
+    this.authCookie = this.authCookie.bind(this)
+  }
+
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+  }
+  
+  componentWillMount () {
+    this.authCookie()
+  }
+  
+  authCookie () {
+    const { cookies } = this.props
+    const token = cookies.get('access_token')
+
+    if (token) {
+      this.setState({ authenticated: true })
+    } else {
+    }
+  }
+  
   render () {
-    const { user } = this.props
+    const { authenticated } = this.state
     return (
       <Router>
         <Switch>
@@ -88,17 +117,17 @@ class App extends Component {
           <LoginLayoutRoute path='/Tour_1' component={Page1} />
           <LoginLayoutRoute path='/Tour_2' component={Page2} />
           <LoginLayoutRoute path='/Tour_3' component={Page3} />
-          <DashboardRoute exact path='/Feed' component={UserFeed} user={user} />
-          <DashboardRoute path='/Files' component={Files} user={user} />
-          <DashboardRoute path='/Photos' component={Photos} user={user} />
-          <DashboardRoute path='/Letters' component={Letters} user={user} />
-          <DashboardRoute path='/Goals' component={Goals} user={user} />
-          <DashboardRoute path='/Courses' component={Courses} user={user} />
-          <DashboardRoute path='/Announcements' component={Announcements} user={user} />
-          <DashboardRoute path='/Updates' component={Updates} user={user} />
-          <DashboardRoute path='/Assignments' component={Assignments} user={user} />
-          <DashboardRoute path='/Community' component={Community} user={user} />
-          <DashboardRoute path='/Settings' component={Settings} user={user} />
+          <DashboardRoute exact path='/Feed' component={UserFeed} authenticated={authenticated} />
+          <DashboardRoute path='/Files' component={Files} authenticated={authenticated} />
+          <DashboardRoute path='/Photos' component={Photos} authenticated={authenticated} />
+          <DashboardRoute path='/Letters' component={Letters} authenticated={authenticated} />
+          <DashboardRoute path='/Goals' component={Goals} authenticated={authenticated} />
+          <DashboardRoute path='/Courses' component={Courses} authenticated={authenticated} />
+          <DashboardRoute path='/Announcements' component={Announcements} authenticated={authenticated} />
+          <DashboardRoute path='/Updates' component={Updates} authenticated={authenticated} />
+          <DashboardRoute path='/Assignments' component={Assignments} authenticated={authenticated} />
+          <DashboardRoute path='/Community' component={Community} authenticated={authenticated} />
+          <DashboardRoute path='/Settings' component={Settings} authenticated={authenticated} />
           <Route component={NoMatch} />
         </Switch>
       </Router>
@@ -106,8 +135,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { user: state.user }
-}
-
-export default connect(mapStateToProps)(App)
+export default withCookies(App)
