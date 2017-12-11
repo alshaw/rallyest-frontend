@@ -13,7 +13,7 @@ export const handleLogout = () => {
     axios.delete('/api/logins/1')
       .then(res => {
         delete window.sessionStorage.token
-        delete window.btoasessionStorage.refresh_token
+        delete window.sessionStorage.refresh_token
         dispatch(setFlash('Logged out successfully!', 'green'))
         dispatch(receiveLogout())
         window.location = '/'
@@ -33,18 +33,33 @@ const receiveLogin = (res) => {
   }
 }
 
-export const handleLogin = (email, password, history) => {
+export const handleLogin = (email, password) => {
   return (dispatch) => {
-    axios.post('/api/logins', { email, password })
-      .then(res => {
-        window.sessionStorage.setItem('token', res.data.token)
-        window.sessionStorage.setItem('refresh_token', res.data.refresh_token)
-        dispatch(receiveLogin(res))
-        history.push('/Feed')
-      })
-      .catch(res => {
-        console.log(res)
+    return axios.post('/api/logins', { email, password })
+      .then(res => dispatch(receiveLogin(res)))
+      .then(history => dispatch(getSession()))
+      .catch(err => {
+        console.log(err)
         dispatch(setFlash('Invalid Email/Password', 'red'))
       })
+  }
+}
+
+const getSession = () => {
+  return (dispatch) => {
+    return axios.get('/api/session')
+      .then(res => dispatch(receiveSession(res)))
+      .then(res => {
+        window.location = '/Feed'
+      })
+  }
+}
+
+export const RECEIVE_SESSION_ID = 'RECEIVE_SESSION_ID'
+const receiveSession = (res) => {
+  let session = JSON.parse(res.data.res)
+  return {
+    type: RECEIVE_SESSION_ID,
+    id: session.data.id
   }
 }

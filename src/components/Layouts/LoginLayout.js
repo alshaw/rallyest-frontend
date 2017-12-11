@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 import React from 'react'
-import NoAuthNav from '../NoAuth/NoAuthNav'
-import NoAuthFooter from '../NoAuth/NoAuthFooter'
+import NoAuthNav from '../../pages/no-auth/NoAuthNav'
+import NoAuthFooter from '../../pages/no-auth/NoAuthFooter'
 
 const LoginLayout = ({children, ...rest}) => {
   return (

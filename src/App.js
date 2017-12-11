@@ -19,10 +19,10 @@ import Photos from './pages/photos/Photos'
 import Settings from './pages/Settings'
 import Updates from './pages/Updates'
 import UserFeed from './pages/user-feed/UserFeed'
-import Login from './pages/NoAuth/Login'
-import Page1 from './pages/NoAuth/Page1'
-import Page2 from './pages/NoAuth/Page2'
-import Page3 from './pages/NoAuth/Page3'
+import Login from './pages/no-auth/Login'
+import Page1 from './pages/no-auth/Page1'
+import Page2 from './pages/no-auth/Page2'
+import Page3 from './pages/no-auth/Page3'
 
 const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
