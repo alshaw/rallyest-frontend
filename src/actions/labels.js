@@ -1,5 +1,4 @@
-import { setFlash } from './flash';
-import axios from 'axios';
+import axios from 'axios'
 
 export const LOAD_LABELS_REQUEST = 'LOAD_LABELS_REQUEST'
 const requestLabels = () => {

@@ -1,14 +1,14 @@
-/*jshint esversion: 6 */
-import React from 'react';
-import { connect } from 'react-redux';
-import { Message, Container, Header } from 'semantic-ui-react';
-import { clearFlash } from '../actions/flash';
+/* jshint esversion: 6 */
+import React from 'react'
+import { connect } from 'react-redux'
+import { Message, Container, Header } from 'semantic-ui-react'
+import { clearFlash } from '../actions/flash'
 
 const fadeFlash = dispatch => {
   setTimeout(() => {
-    dispatch(clearFlash());
-  }, 30000);
-};
+    dispatch(clearFlash())
+  }, 30000)
+}
 
 const Flash = ({ flash, dispatch }) => {
   if (flash.message) {
@@ -22,15 +22,14 @@ const Flash = ({ flash, dispatch }) => {
           {fadeFlash(dispatch)}
         </Message>
       </Container>
-    );
+    )
   }
-  return null;
-};
-
+  return null
+}
 
 const mapStateToProps = state => {
-  const { flash } = state;
-  return { flash };
-};
+  const { flash } = state
+  return { flash }
+}
 
-export default connect(mapStateToProps)(Flash);
+export default connect(mapStateToProps)(Flash)

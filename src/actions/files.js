@@ -1,5 +1,5 @@
-import { setFlash } from './flash';
-import axios from 'axios';
+import { setFlash } from './flash'
+import axios from 'axios'
 
 export const LOAD_FILES_REQUEST = 'LOAD_FILES_REQUEST'
 const requestFiles = () => {
@@ -42,9 +42,9 @@ export const deleteFile = (id) => {
 }
 
 export const handleUpload = (file, metadata) => {
-  return(dispatch) => {
-    let data = new FormData();
-    data.append(1, file);
+  return (dispatch) => {
+    let data = new FormData()
+    data.append(1, file)
     // data.append('description', metadata.description);
     // data.append('metadata', metadata)
     axios.post('/api/holdfiles', data)

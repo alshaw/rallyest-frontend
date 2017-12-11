@@ -1,8 +1,8 @@
-/*jshint esversion: 6 */
-import React from 'react';
-import axios from 'axios';
-import { setFlash } from '../actions/flash';
-import { setHeaders } from '../actions/headers';
+/* jshint esversion: 6 */
+import React from 'react'
+import axios from 'axios'
+import { setFlash } from '../actions/flash'
+import { setHeaders } from '../actions/headers'
 
 
 export const RECEIVE_LOGOUT = 'RECEIVE_LOGOUT'
@@ -13,7 +13,6 @@ const receiveLogout = () => {
 }
 
 export const handleLogout = () => {
-
   return (dispatch) => {
     axios.delete('/api/logins/1')
       .then(res => {
@@ -27,7 +26,7 @@ export const handleLogout = () => {
         console.log(res)
         dispatch(setFlash('Failed to logout', 'red'))
       })
-  };
+  }
 };
 
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'

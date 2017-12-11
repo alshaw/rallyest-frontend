@@ -1,8 +1,8 @@
-import React from 'react';
-import store from '../store';
+import React from 'react'
+import store from '../store'
 
-import { Button, Image, Menu } from 'semantic-ui-react';
-import { toggleAccordionOn, toggleAccordionOff } from '../actions/files';
+import { Image, Menu } from 'semantic-ui-react'
+import { toggleAccordionOn, toggleAccordionOff } from '../actions/files'
 
 const toggleAccordion = () => {
   let { files } = store.getState('files')
@@ -40,5 +40,5 @@ export const feedButtons = () => {
 const styles = {
   background: {
     background: 'none'
- }
+  }
 }
