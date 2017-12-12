@@ -1,5 +1,6 @@
 import React from 'react'
 import { Feed, Image, Segment, Divider } from 'semantic-ui-react'
+import { getDate } from '../../utils/date'
 
 import PostDelete from './PostDelete'
 import PostComment from './PostComment'
@@ -23,16 +24,15 @@ export default ({ posts, dispatch }) => {
             <div>
               <div style={{ display: 'flex', paddingBottom: '1vh' }}>
                 <Feed.Label>
-                      //TODO: User Name Here
-                    </Feed.Label>
+                  {post.attributes.name}
+                </Feed.Label>
               </div>
 
               <div style={{ display: 'flex' }}>
                 <Feed.Content>
                   <Feed.Date style={{fontSize: '75%', color: '#8f8f8f'}}>
-                        //TODO: Real TimeStamp Here
-                      </Feed.Date>
-
+                    {getDate(post.attributes.postDate)}
+                  </Feed.Date>
                   <Feed.Extra
                     text
                     style={{ paddingBottom: '1vh', color: '#333333' }}>
