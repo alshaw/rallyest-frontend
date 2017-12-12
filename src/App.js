@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { withCookies, Cookies } from 'react-cookie'
-import { instanceOf } from 'prop-types'
+import Cookies from 'js-cookie'
 
 import Flash from './components/Flash'
 import DashboardLayout from './components/Layouts/DashboardLayout'
@@ -30,8 +28,8 @@ const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
 }
 
-const DashboardRoute = ({ component: Component, user, authenticated, ...rest }) => {
-  if (!user.isAuthenticated) {
+const DashboardRoute = ({ component: Component, authenticated, ...rest }) => {
+  if (!authenticated) {
     return (
       <div>
         {flash()}
@@ -53,6 +51,7 @@ const DashboardRoute = ({ component: Component, user, authenticated, ...rest }) 
     )
   }
 }
+
 const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
@@ -75,40 +74,14 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
 
         </div>
       </LoginLayout>
-    )} />
+      )} />
   )
 }
 
-class App extends Component {
-  constructor (props) {
-    super()
-    
-    this.state = {
-      authenticated: false
-    }
-    this.authCookie = this.authCookie.bind(this)
-  }
-
-  static propTypes = {
-    cookies: instanceOf(Cookies).isRequired
-  }
-  
-  componentWillMount () {
-    this.authCookie()
-  }
-  
-  authCookie () {
-    const { cookies } = this.props
-    const token = cookies.get('access_token')
-
-    if (token) {
-      this.setState({ authenticated: true })
-    } else {
-    }
-  }
-  
+export default class App extends Component {
   render () {
-    const { authenticated } = this.state
+    const authenticated = Cookies.get('authenticated')
+
     return (
       <Router>
         <Switch>
@@ -134,5 +107,3 @@ class App extends Component {
     )
   }
 }
-
-export default withCookies(App)

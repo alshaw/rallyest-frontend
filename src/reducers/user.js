@@ -19,11 +19,6 @@ const user = (state = {
         ...state,
         id: action.id
       }
-    case 'persist/REHYDRATE':
-      return {
-        data: action.payload.user.data,
-        id: action.payload.user.id
-      }
     default:
       return state
   }

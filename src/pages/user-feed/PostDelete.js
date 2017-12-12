@@ -3,6 +3,7 @@ import { Modal, Icon, Button } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { setFlash } from '../../actions/flash'
+import { deletePost } from '../../actions/posts'
 
 export default class PostDelete extends Component {
   constructor () {
@@ -29,7 +30,7 @@ export default class PostDelete extends Component {
         </Modal.Content>
 
         <Modal.Actions>
-          <Button negative onClick={() => this.postDestroy(id)}>
+          <Button negative onClick={() => this.handlePostDelete(id)}>
             I'm sure, Delete!
           </Button>
         </Modal.Actions>
@@ -49,6 +50,11 @@ export default class PostDelete extends Component {
         console.log(res)
         dispatch(setFlash('Failed to delete post', 'red'))
       })
+  }
+
+  handlePostDelete (id) {
+    const { dispatch } = this.props
+    dispatch(deletePost(id))
   }
 
   openModal () {
