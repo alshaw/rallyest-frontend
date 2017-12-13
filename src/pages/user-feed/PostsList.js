@@ -8,8 +8,8 @@ import PostLikes from './PostLikes'
 import PostEdit from './PostEdit'
 
 export default ({ posts, dispatch }) => {
-  return posts.posts.map(post =>
-    <Segment key={post.id}>
+  return posts.posts.map((post, i) =>
+    <Segment key={i}>
       <Feed.Event>
         <div style={{ display: 'flex' }}>
           <div>
@@ -24,19 +24,19 @@ export default ({ posts, dispatch }) => {
             <div>
               <div style={{ display: 'flex', paddingBottom: '1vh' }}>
                 <Feed.Label>
-                  {post.attributes.name}
+                  {post.userName}
                 </Feed.Label>
               </div>
 
               <div style={{ display: 'flex' }}>
                 <Feed.Content>
                   <Feed.Date style={{fontSize: '75%', color: '#8f8f8f'}}>
-                    {getDate(post.attributes.postDate)}
+                    {getDate(post.date)}
                   </Feed.Date>
                   <Feed.Extra
                     text
                     style={{ paddingBottom: '1vh', color: '#333333' }}>
-                    { post.attributes.text }
+                    { post.text }
                   </Feed.Extra>
 
                   <Feed.Meta>
