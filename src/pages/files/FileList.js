@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 import EditModal from './EditModal'
 import FileDropdown from './FileDropdown'
 import { getFiles } from '../../actions/files'
+import { getDate } from '../../utils/date'
 
 import {
   Segment,
-  Button,
   Image,
   Dropdown
 } from 'semantic-ui-react'
@@ -33,8 +33,8 @@ class FileList extends Component {
   }
 
   listFiles = (files) => {
-    return files.files.map(file =>
-      <Segment key={file.id}>
+    return files.files.map((file, i) =>
+      <Segment key={i}>
         <div style={{ display: 'flex' }}>
 
           <div style={{ display: 'flex', width: '10%', justifyContent: 'center' }}>
@@ -46,11 +46,11 @@ class FileList extends Component {
           <div style={{ display: 'flex', flexDirection: 'column', minWidth: '80%' }}>
 
             <div style={{ flex: 1, fontWeight: 'bold', fontSize: '110%' }}>
-              <span>{file.attributes.name}</span>
+              <span>{file.name}</span>
             </div>
 
             <div style={{ fontStyle: 'italic', fontSize: '90%' }}>
-              <span style={{ color: '#8f8f8f' }}>{file.attributes.uploadDate}</span>
+              <span style={{ color: '#8f8f8f' }}>{getDate(file.date)}</span>
             </div>
 
           </div>

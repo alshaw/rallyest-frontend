@@ -11,7 +11,7 @@ export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS'
 const receivePosts = (json) => {
   return {
     type: LOAD_POSTS_SUCCESS,
-    posts: json.included,
+    posts: json.data.posts.data,
     receivedAt: Date.now()
   }
 }
@@ -20,7 +20,6 @@ export const getPosts = () => {
   return (dispatch) => {
     dispatch(requestPosts())
     return axios.get('/api/posts')
-      .then(res => JSON.parse(res.data.res), error => console.log(error))
       .then(json => dispatch(receivePosts(json)))
   }
 }

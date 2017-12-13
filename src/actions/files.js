@@ -11,7 +11,7 @@ export const LOAD_FILES_SUCCESS = 'LOAD_FILES_SUCCESS'
 const receiveFiles = (json) => {
   return {
     type: LOAD_FILES_SUCCESS,
-    files: json.data,
+    files: json.data.files.data,
     receivedAt: Date.now()
   }
 }
@@ -20,7 +20,6 @@ export const getFiles = () => {
   return (dispatch) => {
     dispatch(requestFiles())
     return axios.get('/api/files')
-      .then(res => JSON.parse(res.data.res), error => console.log(error))
       .then(json => dispatch(receiveFiles(json)))
   }
 }
