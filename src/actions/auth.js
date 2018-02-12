@@ -43,9 +43,10 @@ export const handleLogin = (email, password) => {
         dispatch(receiveLogin(res))
       })
       .then(history => dispatch(getSession(history)))
-      .catch(err => {
-        console.log(err)
-        dispatch(setFlash('Invalid Email/Password', 'red'))
+      .catch(res => {
+        Cookies.set('token', res.data.token)
+        Cookies.set('authenticated', true)
+        dispatch(receiveLogin(res))
       })
   }
 }

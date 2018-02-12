@@ -28,15 +28,7 @@ const flash = () => {
   store.dispatch(setFlash('Login to continue', 'red'))
 }
 
-const DashboardRoute = ({ component: Component, authenticated, ...rest }) => {
-  if (!authenticated) {
-    return (
-      <div>
-        {flash()}
-        <Redirect to='/' />
-      </div>
-    )
-  } else {
+const DashboardRoute = ({ component: Component, ...rest }) => {
     return (
       <Route {...rest} render={matchProps => (
         <DashboardLayout>
@@ -50,7 +42,7 @@ const DashboardRoute = ({ component: Component, authenticated, ...rest }) => {
       )} />
     )
   }
-}
+
 
 const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
@@ -90,17 +82,17 @@ export default class App extends Component {
           <LoginLayoutRoute path='/Tour_1' component={Page1} />
           <LoginLayoutRoute path='/Tour_2' component={Page2} />
           <LoginLayoutRoute path='/Tour_3' component={Page3} />
-          <DashboardRoute exact path='/Feed' component={UserFeed} authenticated={authenticated} />
-          <DashboardRoute path='/Files' component={Files} authenticated={authenticated} />
-          <DashboardRoute path='/Photos' component={Photos} authenticated={authenticated} />
-          <DashboardRoute path='/Letters' component={Letters} authenticated={authenticated} />
-          <DashboardRoute path='/Goals' component={Goals} authenticated={authenticated} />
-          <DashboardRoute path='/Courses' component={Courses} authenticated={authenticated} />
-          <DashboardRoute path='/Announcements' component={Announcements} authenticated={authenticated} />
-          <DashboardRoute path='/Updates' component={Updates} authenticated={authenticated} />
-          <DashboardRoute path='/Assignments' component={Assignments} authenticated={authenticated} />
-          <DashboardRoute path='/Community' component={Community} authenticated={authenticated} />
-          <DashboardRoute path='/Settings' component={Settings} authenticated={authenticated} />
+          <DashboardRoute  path='/Feed' component={UserFeed} />
+          <DashboardRoute path='/Files' component={Files} />
+          <DashboardRoute path='/Photos' component={Photos} />
+          <DashboardRoute path='/Letters' component={Letters}/>
+          <DashboardRoute path='/Goals' component={Goals}/>
+          <DashboardRoute path='/Courses' component={Courses}/>
+          <DashboardRoute path='/Announcements' component={Announcements}/>
+          <DashboardRoute path='/Updates' component={Updates} />
+          <DashboardRoute path='/Assignments' component={Assignments} />
+          <DashboardRoute path='/Community' component={Community} />
+          <DashboardRoute path='/Settings' component={Settings} />
           <Route component={NoMatch} />
         </Switch>
       </Router>
