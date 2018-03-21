@@ -18,25 +18,25 @@ class LabelList extends Component {
   }
 
   deleteLabel = (id) => {
-    const { dispatch, labels } = this.props
-    axios.delete(`/api/labels/${id}`)
-      .then(res => {
-        dispatch(setFlash('Label deleted', 'green'))
-        this.setState({ labels: labels.filter(label => label.id !== id) })
-      })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Label failed to delete', 'red'))
-      })
+  //   const { dispatch, labels } = this.props
+  //   axios.delete(`/api/labels/${id}`)
+  //     .then(res => {
+  //       dispatch(setFlash('Label deleted', 'green'))
+  //       this.setState({ labels: labels.filter(label => label.id !== id) })
+  //     })
+  //     .catch(res => {
+  //       console.log(res)
+  //       dispatch(setFlash('Label failed to delete', 'red'))
+  //     })
   }
 
   addLabel = (id, label) => {
-    const { dispatch } = this.props
-    axios.post('/api/addlabel', { id, label })
-      .then(res => {
-        console.log(res)
-        dispatch(setFlash('Label Added to File', 'green'), err => console.log(err))
-      })
+    // const { dispatch } = this.props
+    // axios.post('/api/addlabel', { id, label })
+    //   .then(res => {
+    //     console.log(res)
+    //     dispatch(setFlash('Label Added to File', 'green'), err => console.log(err))
+    //   })
   }
 
   listLabels = (labels) => {
@@ -51,7 +51,7 @@ class LabelList extends Component {
           margin: '3px'
         }}
       >
-        {label.attributes.name}
+        {label.name}
         <Icon
           button
           color='#E1E6E7'

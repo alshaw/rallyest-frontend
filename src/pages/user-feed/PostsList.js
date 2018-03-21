@@ -42,11 +42,19 @@ export default ({ posts, dispatch }) => {
                   <Feed.Meta>
                     <Feed.Like>
                       <div style={{ display: 'flex' }}>
-                        <div>
-                          <PostComment />
-                          <PostLikes />
-                          <PostEdit id={post.id} text={post.text} />
-                          <PostDelete id={post.id} dispatch={dispatch} />
+                        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                          <span>
+                            <PostComment />
+                          </span>
+                          <span>
+                            <PostLikes />
+                          </span>
+                          <span>
+                            <PostEdit id={post.id} text={post.text} />
+                          </span>                         
+                          <span>
+                            <PostDelete id={post.id} dispatch={dispatch} />
+                          </span>
                         </div>
                       </div>
                     </Feed.Like>
@@ -61,12 +69,3 @@ export default ({ posts, dispatch }) => {
     </Segment>
   )
 }
-
-// const styles = {
-//   Likes_comments: {
-//     display: 'inline-flex',
-//     paddingRight: '1vw',
-//     fontSize: '75%',
-//     color: '#8f8f8f'
-//   }
-// }

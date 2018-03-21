@@ -9,20 +9,29 @@ const receiveLogout = () => {
   }
 }
 
+// Handling logout with third-party api
+// export const handleLogout = () => {
+//   return (dispatch) => {
+//     axios.delete('/api/logins/1')
+//       .then(res => {
+//         Cookies.remove('authenticated')
+//         Cookies.remove('token')
+//         dispatch(setFlash('Logged out successfully!', 'green'))
+//         dispatch(receiveLogout())
+//         window.location = '/'
+//       })
+//       .catch(res => {
+//         console.log(res)
+//         dispatch(setFlash('Failed to logout', 'red'))
+//       })
+//   }
+// }
+
+// Simple logout for sample
 export const handleLogout = () => {
   return (dispatch) => {
-    axios.delete('/api/logins/1')
-      .then(res => {
-        Cookies.remove('authenticated')
-        Cookies.remove('token')
-        dispatch(setFlash('Logged out successfully!', 'green'))
-        dispatch(receiveLogout())
-        window.location = '/'
-      })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Failed to logout', 'red'))
-      })
+    dispatch(setFlash('Logout successful', 'green'))
+    window.location = '/'
   }
 }
 

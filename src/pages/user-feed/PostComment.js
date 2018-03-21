@@ -7,7 +7,7 @@ class PostComment extends Component {
     comment: ''
   }
 
-  handelSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
   }
 

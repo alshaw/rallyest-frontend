@@ -81,7 +81,7 @@ class EditModal extends Component {
                     >
                     <div style={{marginRight: '10px'}}>
                       <Icon name='tag' />
-                      {label.attributes.name}
+                      {label.name}
                     </div>
                   </div>
                 </div>

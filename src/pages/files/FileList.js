@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { connect } from 'react-redux'
 
 import EditModal from './EditModal'
 import FileDropdown from './FileDropdown'
+
+// Redux action to request files from Rails API.
 import { getFiles } from '../../actions/files'
+
+// Simple custom utility to change date format.
 import { getDate } from '../../utils/date'
 
 import {
@@ -14,23 +17,24 @@ import {
 } from 'semantic-ui-react'
 
 class FileList extends Component {
-  componentWillMount () {
-    const { dispatch } = this.props
-    dispatch(getFiles())
-  }
+  state = { files: [] }
 
   componentDidMount () {
     const { dispatch } = this.props
     dispatch(getFiles())
+
+    // I will use hard-coded data from the Rails API to fill the client data
+    // as there's no connection to the database.
   }
 
-  handleFileOption = (value, id) => {
-    switch (value) {
-      case 1:
-        return this.handleFileDelete(id)
-      default:
-    }
-  }
+  // Delete file option from dropdown
+  // handleFileOption = (value, id) => {
+  //   switch (value) {
+  //     case 1:
+  //       return this.handleFileDelete(id)
+  //     default:
+  //   }
+  // }
 
   listFiles = (files) => {
     return files.files.map((file, i) =>
@@ -80,6 +84,9 @@ class FileList extends Component {
 
   render () {
     const { files } = this.props
+
+    // No longer using props to access files because we are not using Redux in the sample.
+    // const { files } = this.props
     return (
       <div>
         {this.listFiles(files)}
@@ -88,6 +95,8 @@ class FileList extends Component {
   }
 }
 
+// Uses redux to get state, though in this sample I will not use redux,
+// the code for the actions/dispatchers/reducers are intact.
 const mapStateToProps = (state) => {
   return { files: state.files }
 }

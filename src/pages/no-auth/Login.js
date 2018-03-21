@@ -4,9 +4,11 @@ import { Header, Segment, Form, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
+import { setFlash } from '../../actions/flash'
 
-import { handleLogin } from '../../actions/auth'
-import { verifyToken } from '../../actions/auth'
+// Redux actions to handle authentication.
+// import { handleLogin } from '../../actions/auth'
+// import { verifyToken } from '../../actions/auth'
 
 class Login extends Component {
   state = { email: '', password: '' };
@@ -15,15 +17,25 @@ class Login extends Component {
     const { id, value } = event.target
     this.setState({ [id]: value })
   }
-  handleSubmit = event => {
-    event.preventDefault()
-    const { dispatch, history } = this.props
-    const { email, password } = this.state
-    if (/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
-      dispatch(handleLogin(email, password, history))
-    } else {
-      alert('This email is Invalid')
-    }
+
+  // This function uses redux to authenticate you with the Rails application. Since there is no API
+  // in this sample, I will use a working function.
+  // handleSubmit = event => {
+  //   event.preventDefault()
+  //   const { dispatch, history } = this.props
+  //   const { email, password } = this.state
+  //   if (/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
+  //     dispatch(handleLogin(email, password, history))
+  //   } else {
+  //     alert('This email is Invalid')
+  //   }
+  // }
+
+  handleSubmit = (e, history) => {
+    const { dispatch } = this.props;
+    e.preventDefault();
+    dispatch(setFlash('Successful login', 'green'))
+    window.location = '/files'
   }
 
   render () {

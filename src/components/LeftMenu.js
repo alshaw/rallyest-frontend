@@ -43,7 +43,7 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Photos'}>
+              <Link to={'#'}>
                 <Menu.Item active={activeItem === 'Photos'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
@@ -75,7 +75,7 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Updates'} >
+              <Link to={'#'} >
                 <Menu.Item active={activeItem === 'Updates'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
@@ -91,7 +91,7 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Courses'}>
+              <Link to={'#'}>
                 <Menu.Item active={activeItem === 'Courses'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>
@@ -107,7 +107,7 @@ class LeftMenu extends Component {
                 </Menu.Item>
               </Link>
 
-              <Link to={'/Settings'}>
+              <Link to={'#'}>
                 <Menu.Item active={activeItem === 'Settings'} onClick={this.handleItemClick}>
                   <div style={styles.iconBox}>
                     <div style={styles.icoimage}>

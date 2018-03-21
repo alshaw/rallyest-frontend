@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import Cookies from 'js-cookie'
 
 import Flash from './components/Flash'
 import DashboardLayout from './components/Layouts/DashboardLayout'
@@ -24,10 +23,6 @@ import Page1 from './pages/no-auth/Page1'
 import Page2 from './pages/no-auth/Page2'
 import Page3 from './pages/no-auth/Page3'
 
-const flash = () => {
-  store.dispatch(setFlash('Login to continue', 'red'))
-}
-
 const DashboardRoute = ({ component: Component, ...rest }) => {
     return (
       <Route {...rest} render={matchProps => (
@@ -42,7 +37,6 @@ const DashboardRoute = ({ component: Component, ...rest }) => {
       )} />
     )
   }
-
 
 const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
@@ -72,7 +66,6 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
 
 export default class App extends Component {
   render () {
-    const authenticated = Cookies.get('authenticated')
 
     return (
       <Router>
